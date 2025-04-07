@@ -1,0 +1,208 @@
+/* Styles généraux pour le tableau de bord administrateur */
+.dashboard-container {
+  padding: 20px 0;
+}
+
+/* Cartes de statistiques */
+.stat-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.stat-card .card-body {
+  padding: 20px;
+}
+
+.stat-card .icon-circle {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: rgba(0,123,255,0.1);
+}
+
+.stat-card.primary .icon-circle {
+  background-color: rgba(0,123,255,0.1);
+  color: #0d6efd;
+}
+
+.stat-card.success .icon-circle {
+  background-color: rgba(40,167,69,0.1);
+  color: #28a745;
+}
+
+.stat-card.warning .icon-circle {
+  background-color: rgba(255,193,7,0.1);
+  color: #ffc107;
+}
+
+.stat-card.info .icon-circle {
+  background-color: rgba(23,162,184,0.1);
+  color: #17a2b8;
+}
+
+.stat-card i {
+  font-size: 1.8rem;
+}
+
+.stat-card .stat-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 5px;
+}
+
+.stat-card .stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.stat-card .stat-text {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* Tableaux dans le tableau de bord */
+.dashboard-table {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dashboard-table .card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 15px 20px;
+}
+
+.dashboard-table .card-header h5 {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #495057;
+}
+
+.dashboard-table .table {
+  margin-bottom: 0;
+}
+
+.dashboard-table .table th {
+  font-weight: 600;
+  color: #495057;
+  border-top: none;
+  padding: 15px;
+}
+
+.dashboard-table .table td {
+  padding: 15px;
+  vertical-align: middle;
+}
+
+.dashboard-table .avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Graphiques */
+.chart-area {
+  position: relative;
+  height: 300px;
+  margin: 0 auto;
+}
+
+/* Badges améliorés */
+.badge {
+  padding: 0.4em 0.65em;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  border-radius: 4px;
+}
+
+/* Pagination améliorée */
+.pagination {
+  margin-top: 20px;
+}
+
+.page-link {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin: 0 2px;
+}
+
+.page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Amélioration des boutons d'action */
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Adaptations pour les écrans mobiles */
+@media (max-width: 767.98px) {
+  .stat-card {
+    margin-bottom: 20px;
+  }
+  
+  .chart-area {
+    height: 250px;
+  }
+}
+
+/* Animation pour les tableaux de données */
+.animate-row {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mise en forme spécifique pour la page */
+.admin-overview {
+  margin-bottom: 30px;
+}
+
+.admin-overview .alert {
+  border-radius: 8px;
+  border-left: 4px solid #0d6efd;
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+.admin-overview .alert-heading {
+  font-weight: 600;
+  color: #0d6efd;
+}

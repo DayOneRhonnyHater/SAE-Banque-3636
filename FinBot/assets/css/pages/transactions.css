@@ -1,0 +1,112 @@
+/* Styles spécifiques à la page transactions */
+
+/* En-tête */
+.transactions-header {
+    border-left: 4px solid #4e73df;
+    padding-left: 15px;
+    margin-bottom: 1.5rem;
+}
+
+/* Tableaux */
+.table th {
+    font-weight: 600;
+    border-top: 0;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Filtres */
+.filter-form {
+    padding: 1rem;
+    background-color: #f8f9fc;
+    border-radius: 0.35rem;
+}
+
+.flatpickr-calendar {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+    border-radius: 0.35rem !important;
+}
+
+/* Détails des transactions */
+.transaction-details {
+    padding: 1rem;
+    background-color: #f8f9fc;
+    border-radius: 0.35rem;
+}
+
+/* Graphiques */
+.chart-container {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.35rem;
+    min-height: 300px;
+}
+
+/* Impression */
+@media print {
+    .sidebar, .sidebar-toggle, .card-header, .filter-form, .btn-group, .dropdown, .modal {
+        display: none !important;
+    }
+    
+    .main-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .card-body {
+        padding: 1rem !important;
+    }
+    
+    .table {
+        font-size: 12px !important;
+    }
+    
+    .table-responsive {
+        overflow: visible !important;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0.5cm;
+    }
+    
+    body {
+        font-size: 12pt;
+    }
+    
+    h1 {
+        font-size: 18pt;
+    }
+    
+    h2 {
+        font-size: 16pt;
+    }
+    
+    h3 {
+        font-size: 14pt;
+    }
+    
+    .badge {
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        background-color: transparent !important;
+    }
+}
+
+/* Animations */
+.card, .chart-container, .table-responsive {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,37 @@
+body {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.bg-login-image {
+    background: url('../img/login-bg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.form-control-user {
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+}
+
+.btn-user {
+    border-radius: 10rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    display: block;
+    width: 100%;
+}
+
+.btn-google {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #fff;
+}
+
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: #fff;
+}

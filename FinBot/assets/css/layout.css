@@ -1,0 +1,51 @@
+/* Structure de base */
+.wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Contenu principal */
+.main-content {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    transition: all 0.3s;
+    padding: 20px;
+}
+
+/* Adaptations pour mobile */
+@media (max-width: 768px) {
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Conteneurs */
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Grille simple */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col, .col-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Colonnes responsive */
+.col-md-6 { max-width: 50%; }
+.col-xl-3 { max-width: 25%; }
+.col-xl-4 { max-width: 33.333333%; }

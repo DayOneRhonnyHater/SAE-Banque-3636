@@ -1,0 +1,476 @@
+/* CSS pour l'espace administrateur FinBot */
+
+/* Variables globales */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --secondary-color: #2c3e50;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+  --light-bg: #f8f9fa;
+  --dark-bg: #343a40;
+  --border-color: #dee2e6;
+  --text-muted: #6c757d;
+}
+
+/* Sidebar styles */
+.sidebar {
+  background-color: var(--secondary-color);
+  min-height: calc(100vh - 56px);
+  position: sticky;
+  top: 56px;
+  height: calc(100vh - 56px);
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.75rem 1rem;
+  transition: all 0.3s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--primary-color);
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left-color: var(--primary-color);
+}
+
+.sidebar .nav-link i {
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+/* Dashboard cards */
+.dashboard-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card .card-header {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 500;
+  padding: 1rem;
+  border-bottom: none;
+}
+
+.dashboard-card .card-body {
+  padding: 1.5rem;
+}
+
+.dashboard-card .stats-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  opacity: 0.8;
+}
+
+.dashboard-card .stats-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.dashboard-card .stats-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+/* Tables styles */
+.admin-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table thead th {
+  background-color: var(--secondary-color);
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.7px;
+  padding: 12px 15px;
+  border: none;
+}
+
+.admin-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.admin-table tbody tr:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.admin-table tbody td {
+  padding: 12px 15px;
+  vertical-align: middle;
+  border-top: 1px solid var(--border-color);
+}
+
+.admin-table .table-action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 5px;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.admin-table .view-btn {
+  background-color: var(--info-color);
+}
+
+.admin-table .edit-btn {
+  background-color: var(--warning-color);
+}
+
+.admin-table .delete-btn {
+  background-color: var(--danger-color);
+}
+
+.admin-table .table-action-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Filters styles */
+.filter-card {
+  background-color: var(--light-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.filter-card .card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 15px 20px;
+}
+
+.filter-card .card-header h5 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.filter-card .card-body {
+  padding: 20px;
+}
+
+.filter-control {
+  margin-bottom: 15px;
+}
+
+/* Badges et statuts */
+.badge-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.badge-pending {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.badge-approved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.badge-frozen {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+.badge-active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.badge-inactive {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+/* Transactions page */
+.transaction-type-virement {
+  background-color: #e8f4fd;
+  color: #0c63e4;
+}
+
+.transaction-type-depot {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.transaction-type-retrait {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+.transaction-type-paiement {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+.transaction-type-prelevement {
+  background-color: #e2e3e5;
+  color: #41464b;
+}
+
+/* Loan validation page */
+.loan-details-section {
+  margin-top: 1.5rem;
+  padding: 20px;
+  background-color: var(--light-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.loan-details-section h4 {
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.loan-stat {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.loan-stat i {
+  font-size: 1.8rem;
+  margin-right: 15px;
+}
+
+.loan-stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.loan-stat-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.loan-amount {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.loan-duration {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.loan-rate {
+  background-color: #f1f8e9;
+  color: #33691e;
+}
+
+.loan-monthly {
+  background-color: #fce4ec;
+  color: #880e4f;
+}
+
+/* Accounts page */
+.account-card {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.account-card:hover {
+  transform: translateY(-5px);
+}
+
+.account-card .card-header {
+  padding: 15px 20px;
+  border-bottom: none;
+}
+
+.account-card .account-type {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.account-card .account-number {
+  font-family: monospace;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.account-card .account-balance {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.account-card .account-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Type de compte */
+.account-type-courant {
+  background-color: #e8f4fd;
+  color: #0c63e4;
+}
+
+.account-type-epargne {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.account-type-titre {
+  background-color: #fff3cd;
+  color: #664d03;
+}
+
+/* Pagination personnalisée */
+.admin-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.admin-pagination .page-item .page-link {
+  border: none;
+  margin: 0 3px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  transition: all 0.2s;
+}
+
+.admin-pagination .page-item.active .page-link {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.admin-pagination .page-item .page-link:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Charts */
+.chart-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.chart-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Header - Navigation */
+.admin-header {
+  background-color: var(--secondary-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header .navbar-brand {
+  font-weight: 700;
+  color: white;
+}
+
+.admin-header .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.admin-header .nav-link:hover,
+.admin-header .nav-link.active {
+  color: white;
+}
+
+/* Message flash */
+.admin-alert {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px 20px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    height: auto;
+    min-height: auto;
+  }
+  
+  .dashboard-card {
+    margin-bottom: 1rem;
+  }
+  
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

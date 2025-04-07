@@ -1,0 +1,187 @@
+/* Styles pour la page profil */
+
+/* Avatar et placeholder */
+.profile-avatar-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4e73df;
+    color: white;
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+/* Groupe d'information */
+.info-group {
+    margin-bottom: 1rem;
+}
+
+.info-group:last-child {
+    margin-bottom: 0;
+}
+
+.info-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4e73df;
+    margin-bottom: 0.25rem;
+}
+
+.info-group p {
+    margin-bottom: 0;
+}
+
+/* Onglets dans les cartes */
+.nav-tabs .nav-link {
+    color: #4e73df;
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+}
+
+.nav-tabs .nav-link.active {
+    color: #4e73df;
+    background-color: #fff;
+    border-color: #dddfeb #dddfeb #fff;
+    font-weight: 600;
+}
+
+.tab-content {
+    padding-top: 1rem;
+}
+
+/* Badges */
+.badge {
+    font-size: 85%;
+    padding: 0.35em 0.65em;
+}
+
+.badge.bg-success {
+    background-color: #1cc88a !important;
+}
+
+.badge.bg-danger {
+    background-color: #e74a3b !important;
+}
+
+/* Éléments de sécurité */
+.security-item {
+    padding: 1rem 0;
+}
+
+/* Mode sombre */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode .card-header {
+    background-color: #2a2a2a;
+    border-color: #333;
+}
+
+body.dark-mode .nav-tabs .nav-link.active {
+    color: #4e73df;
+    background-color: #1e1e1e;
+    border-color: #333 #333 #1e1e1e;
+}
+
+body.dark-mode .nav-tabs {
+    border-color: #333;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #2a2a2a;
+    border-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .text-muted {
+    color: #adb5bd !important;
+}
+
+/* Animations */
+.card, .form-control, .form-select, .btn {
+    transition: all 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content > .tab-pane.active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .profile-avatar-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-avatar-placeholder {
+        font-size: 3rem;
+    }
+    
+    .card-header-tabs {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Hover states */
+.btn-outline-primary:hover {
+    background-color: #4e73df;
+    color: white;
+}
+
+.btn-outline-danger:hover {
+    background-color: #e74a3b;
+    color: white;
+}
+
+/* Popup de confirmation */
+.swal2-popup {
+    font-size: 0.9rem !important;
+}
+
+.security-item i {
+    min-width: 24px;
+}

@@ -1,0 +1,19 @@
+/* Import des styles de base */
+@import 'base.css';
+@import 'layout.css';
+@import 'utilities.css';
+
+/* Import des composants */
+@import 'components/sidebar.css';
+@import 'components/cards.css';
+@import 'components/badges.css';
+@import 'components/buttons.css';
+@import 'components/modals.css';
+@import 'components/tables.css';
+
+/* Import des styles spécifiques aux pages */
+@import 'pages/accounts.css';
+@import 'pages/dashboard.css';
+@import 'pages/transactions.css';
+@import 'pages/profile.css';
+@import 'pages/register.css';

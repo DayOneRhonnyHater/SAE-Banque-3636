@@ -1,0 +1,269 @@
+/* Styles spécifiques pour la page de gestion des utilisateurs */
+
+/* Carte utilisateur avec hover */
+.user-card {
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  border: 1px solid #e9ecef;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.user-card .card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  padding: 15px;
+}
+
+.user-card .card-body {
+  padding: 20px;
+}
+
+.user-card .user-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.user-card .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-card .user-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #343a40;
+}
+
+.user-card .user-email {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.user-card .user-role {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+
+/* Tableau des utilisateurs */
+.users-table .user-cell {
+  display: flex;
+  align-items: center;
+}
+
+.users-table .user-info {
+  margin-left: 10px;
+}
+
+.users-table .user-name {
+  font-weight: 600;
+  color: #212529;
+}
+
+.users-table .user-email {
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Badges pour les rôles */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35em 0.75em;
+  font-size: 0.75em;
+  font-weight: 700;
+  border-radius: 50px;
+  column-gap: 5px;
+}
+
+.role-badge.admin {
+  background-color: #dc3545;
+  color: white;
+}
+
+.role-badge.conseiller {
+  background-color: #fd7e14;
+  color: white;
+}
+
+.role-badge.client {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Switch pour l'état actif/inactif */
+.status-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.status-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.status-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.status-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.status-switch input:checked + .slider {
+  background-color: #28a745;
+}
+
+.status-switch input:focus + .slider {
+  box-shadow: 0 0 1px #28a745;
+}
+
+.status-switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Formulaire de filtre utilisateurs */
+.user-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.user-filters .form-group {
+  margin-bottom: 0;
+}
+
+/* Modal d'ajout/modification d'utilisateur */
+.user-form .photo-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-form .current-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #e9ecef;
+}
+
+.user-form .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.user-form .upload-btn {
+  border: 1px solid #6c757d;
+  color: #6c757d;
+  background-color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.user-form .upload-btn-wrapper input[type=file] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* Animations pour les actions CRUD */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-added {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes highlightRow {
+  0% { background-color: rgba(40, 167, 69, 0.2); }
+  100% { background-color: transparent; }
+}
+
+.user-updated {
+  animation: highlightRow 1.5s ease;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(10px); }
+}
+
+.user-deleted {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+/* Styles pour le modal de confirmation */
+.confirm-modal .modal-header {
+  background-color: #dc3545;
+  color: white;
+}
+
+.confirm-modal .modal-body {
+  padding: 20px;
+}
+
+.confirm-modal .modal-footer {
+  border-top: none;
+  padding: 10px 20px 20px;
+}
+
+.confirm-modal .user-to-delete {
+  font-weight: 600;
+}
+
+.confirm-modal .warning-icon {
+  font-size: 3rem;
+  color: #dc3545;
+  margin-bottom: 15px;
+}

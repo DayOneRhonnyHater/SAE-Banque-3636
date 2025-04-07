@@ -1,0 +1,146 @@
+/* Styles pour la page Prêts */
+
+/* Badges de statut */
+.badge {
+    font-size: 85%;
+    padding: 0.35em 0.65em;
+}
+
+.badge.bg-primary {
+    background-color: #4e73df !important;
+}
+
+.badge.bg-success {
+    background-color: #1cc88a !important;
+}
+
+.badge.bg-warning {
+    background-color: #f6c23e !important;
+}
+
+.badge.bg-danger {
+    background-color: #e74a3b !important;
+}
+
+.badge.bg-info {
+    background-color: #36b9cc !important;
+}
+
+.badge.bg-secondary {
+    background-color: #858796 !important;
+}
+
+/* Tableau des prêts */
+.table-hover tbody tr:hover {
+    background-color: rgba(78, 115, 223, 0.05);
+    cursor: pointer;
+}
+
+/* Carte des détails du prêt */
+.card-header-tabs {
+    margin-top: -0.75rem;
+    margin-bottom: -0.75rem;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    border-bottom: 0;
+}
+
+/* Détail du prêt */
+.table-sm th {
+    font-weight: 600;
+    color: #4e73df;
+}
+
+/* Simulateur de prêt */
+#simulation_result {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Barre de progression */
+.progress {
+    height: 20px;
+    border-radius: 0.35rem;
+    background-color: #eaecf4;
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+    font-weight: 600;
+}
+
+/* Onglets dans les cartes */
+.nav-tabs .nav-link {
+    color: #4e73df;
+    border-radius: 0;
+    padding: 0.75rem 1rem;
+}
+
+.nav-tabs .nav-link.active {
+    color: #4e73df;
+    background-color: #fff;
+    border-color: #dddfeb #dddfeb #fff;
+    font-weight: 600;
+}
+
+.tab-content {
+    padding-top: 1rem;
+}
+
+/* Animations */
+.card, .table-responsive {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .d-flex.justify-content-between > .btn {
+        margin-top: 1rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}
+
+/* États survol des boutons */
+.btn-outline-primary:hover {
+    background-color: #4e73df;
+    color: #fff;
+}
+
+.btn-outline-danger:hover {
+    background-color: #e74a3b;
+    color: #fff;
+}
+
+/* Styles spécifiques pour le tableau d'amortissement */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(78, 115, 223, 0.05);
+}
+
+/* Résumé financier */
+.card.bg-light {
+    background-color: #f8f9fc !important;
+    border-color: #e3e6f0;
+}
+
+.text-primary.h5, .text-danger.h5 {
+    font-weight: 700;
+}
+
+/* Détails d'une offre */
+.alert-info {
+    color: #2c6075;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}

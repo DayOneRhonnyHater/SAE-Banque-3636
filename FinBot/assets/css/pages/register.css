@@ -1,0 +1,115 @@
+/**
+ * Styles pour la page d'inscription
+ */
+
+/* Styles généraux */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    min-height: 100vh;
+}
+
+/* Image d'arrière-plan */
+.bg-register-image {
+    background: url('../../img/register-bg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+/* Si l'image n'existe pas, utiliser un dégradé */
+@media (max-width: 992px) {
+    .bg-register-image {
+        background: linear-gradient(135deg, #2e59d9 0%, #1a3c8e 100%);
+        min-height: 200px;
+    }
+}
+
+/* Styles du formulaire */
+.form-control-user {
+    border-radius: 10rem;
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.form-control-user:focus {
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    border-color: #bac8f3;
+}
+
+/* Styles des boutons */
+.btn-user {
+    font-size: 0.9rem;
+    border-radius: 10rem;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background-color: #4e73df;
+    border-color: #4e73df;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(46, 89, 217, 0.2);
+}
+
+/* Améliorations visuelles des alertes */
+.alert {
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    color: #b71c1c;
+}
+
+/* Styles des liens */
+.small {
+    color: #4e73df;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.small:hover {
+    color: #224abe;
+    text-decoration: none;
+}
+
+/* Amélioration du contraste et de la lisibilité */
+.text-gray-900 {
+    color: #3a3b45 !important;
+}
+
+/* Ombres et effets de carte */
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Animation d'entrée */
+.card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,12 @@
+[05-Apr-2025 18:43:12 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 38
+[05-Apr-2025 18:43:12 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 39
+[05-Apr-2025 18:43:12 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 40
+[05-Apr-2025 18:43:12 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 41
+[05-Apr-2025 18:43:12 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 42
+[05-Apr-2025 18:43:12 UTC] PHP Warning:  session_name(): Session name cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 43
+[05-Apr-2025 18:43:22 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 38
+[05-Apr-2025 18:43:22 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 39
+[05-Apr-2025 18:43:22 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 40
+[05-Apr-2025 18:43:22 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 41
+[05-Apr-2025 18:43:22 UTC] PHP Warning:  ini_set(): Session ini settings cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 42
+[05-Apr-2025 18:43:22 UTC] PHP Warning:  session_name(): Session name cannot be changed when a session is active in C:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\config\app.php on line 43

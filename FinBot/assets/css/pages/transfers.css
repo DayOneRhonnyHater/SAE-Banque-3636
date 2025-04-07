@@ -1,0 +1,196 @@
+/* Styles spécifiques à la page de virements */
+
+/* Onglets */
+.nav-pills .nav-link {
+    color: #4e73df;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    margin-right: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: rgba(78, 115, 223, 0.1);
+}
+
+.nav-pills .nav-link.active {
+    background-color: #4e73df;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(78, 115, 223, 0.2);
+}
+
+/* Formulaires */
+.form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.input-group-text {
+    background-color: #f8f9fc;
+    border-color: #d1d3e2;
+}
+
+/* Formulaire de virement */
+.form-check-input:checked + .form-check-label {
+    font-weight: bold;
+    color: #4e73df;
+}
+
+/* Conteneurs de type de virement */
+#virementInterneContainer, #virementExterneContainer {
+    padding: 1rem;
+    background-color: #f8f9fc;
+    border-radius: 0.35rem;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Cartes et résumé de virement */
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+}
+
+.transfer-summary {
+    background-color: #f8f9fc;
+    border-radius: 0.35rem;
+    padding: 1rem;
+    border-left: 0.25rem solid #4e73df;
+}
+
+.transfer-icon {
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background-color: #f8f9fc;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.transfer-amount {
+    font-size: 1.25rem;
+    color: #4e73df;
+    display: block;
+}
+
+/* Tableau des derniers virements */
+.table th {
+    font-weight: 600;
+    border-top: 0;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Liste des virements récents */
+.list-group-item {
+    transition: background-color 0.2s;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fc;
+}
+
+/* Info-bulle pour le solde */
+#soldeInfo, #beneficiaireInfo {
+    padding: 0.5rem;
+    background-color: #eaecf4;
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+/* Animation */
+.card, .alert {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-pills .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .transfer-icon {
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+    }
+    
+    .transfer-icon i {
+        font-size: 1.75rem !important;
+    }
+    
+    .transfer-amount {
+        font-size: 1rem;
+    }
+
+    .d-md-flex.justify-content-md-end {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn.me-md-2 {
+        margin-right: 0 !important;
+    }
+}
+
+/* États des champs invalides */
+.form-control:invalid:focus, .form-select:invalid:focus {
+    border-color: #e74a3b;
+    box-shadow: 0 0 0 0.25rem rgba(231, 74, 59, 0.25);
+}
+
+/* Styles pour l'affichage des badges et statuts */
+.badge {
+    font-size: 85%;
+    padding: 0.35em 0.65em;
+}
+
+.badge.bg-primary {
+    background-color: #4e73df !important;
+}
+
+.badge.bg-success {
+    background-color: #1cc88a !important;
+}
+
+.badge.bg-warning {
+    background-color: #f6c23e !important;
+}
+
+.badge.bg-danger {
+    background-color: #e74a3b !important;
+}
+
+.badge.bg-info {
+    background-color: #36b9cc !important;
+}

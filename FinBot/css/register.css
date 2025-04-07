@@ -1,0 +1,141 @@
+/**
+ * Styles spécifiques à la page d'inscription
+ */
+
+/* Couleurs et dégradés de la page */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+    background-size: cover;
+}
+
+/* Image d'arrière-plan de l'inscription */
+.bg-register-image {
+    background: url('../img/register-bg.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+/* Si vous n'avez pas d'image, utilisez un dégradé */
+.bg-register-image {
+    background: linear-gradient(135deg, #36b9cc 0%, #1cc88a 100%);
+}
+
+/* Améliorations des éléments du formulaire */
+.form-control-user {
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.form-control-user:focus {
+    box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    border-color: #bac8f3;
+}
+
+/* Style du bouton */
+.btn-user {
+    font-size: 0.8rem;
+    border-radius: 10rem;
+    padding: 0.75rem 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-primary {
+    background-color: #4e73df;
+    border-color: #4e73df;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    border-color: #2653d4;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Animation des champs de formulaire */
+.form-control-user {
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control-user:focus {
+    transform: scale(1.02);
+}
+
+/* Style de la carte */
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 0;
+}
+
+/* Amélioration des alertes */
+.alert {
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    color: #b71c1c;
+}
+
+/* Responsive design amélioré */
+@media (max-width: 991.98px) {
+    .col-lg-7 {
+        padding: 2rem;
+    }
+    
+    .p-5 {
+        padding: 1rem !important;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Liens stylisés */
+.small {
+    color: #4e73df;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.small:hover {
+    color: #224abe;
+    text-decoration: none;
+}
+
+/* Séparateur */
+hr {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 1.5rem 0;
+}
