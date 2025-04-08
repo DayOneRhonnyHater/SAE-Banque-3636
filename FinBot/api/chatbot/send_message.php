@@ -2,6 +2,37 @@
 // FinBot/api/chatbot/send_message.php
 require_once __DIR__ . '/../../includes/init.php';
 require_once __DIR__ . '/../../classes/Chatbot.php';
+require_once __DIR__ . '/../../includes/init.php';
+
+// Vérifiez si l'utilisateur est connecté
+session_start();
+if (!isset($_SESSION['user'])) {
+    echo json_encode(['error' => 'Utilisateur non authentifié']);
+    exit;
+}
+
+// Récupérez les données envoyées par le frontend
+$data = json_decode(file_get_contents('php://input'), true);
+$message = $data['message'] ?? '';
+
+if (empty($message)) {
+    echo json_encode(['error' => 'Message requis']);
+    exit;
+}
+
+// Contexte utilisateur
+$userContext = [
+    'user_id' => $_SESSION['user']['id'] ?? null,
+    'user_name' => $_SESSION['user']['name'] ?? null,
+];
+
+// Appelez le chatbot via le script Python
+$response = callPythonChatbot($message, $userContext);
+
+// Retournez la réponse au frontend
+header('Content-Type: application/json');
+echo json_encode(['response' => $response]);
+
 
 // Vérifier si l'utilisateur est authentifié
 require_once __DIR__ . '/../../includes/auth_functions.php';

@@ -1,13 +1,17 @@
 # FinBot/python/chatbot.py
 import sys
 import json
+# Configurer l'API avec la clé
 import os
+from dotenv import load_dotenv
 import google.generativeai as genai
 
-# Configurer l'API avec la clé
-api_key = os.environ.get('GEMINI_API_KEY')
-genai.configure(api_key=api_key)
+# Charger le .env depuis le dossier racine
+env_path = os.path.join(os.path.dirname(__file__), '../../.env')
+load_dotenv(env_path)  # Correction cruciale du chemin
 
+# Configuration explicite
+genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
 # Fonction principale pour générer une réponse
 def generate_response(message, context=None):
     model = genai.GenerativeModel('gemini-pro')

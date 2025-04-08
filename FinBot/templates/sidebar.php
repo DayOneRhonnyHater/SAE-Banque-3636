@@ -78,8 +78,9 @@ function isActive($page) {
                 <li class="nav-item <?= isActive('chatbot.php') ?>">
                     <a class="nav-link" href="chatbot.php">
                         <i class="fas fa-robot"></i> 
+                        <span>FinBot Chat</span>
                     </a>
-                    <span>FinBot Chat</span>
+                    
                 </li>
 
                         <?php 
