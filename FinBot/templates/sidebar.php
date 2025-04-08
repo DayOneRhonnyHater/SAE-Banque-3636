@@ -75,10 +75,13 @@ function isActive($page) {
                     </a>
                 </li>
                 
-                <li class="nav-item <?= isActive('messages.php') ?>">
-                    <a href="messages.php" class="nav-link">
-                        <i class="fas fa-robot"></i>
-                        <span>FinBot Chat</span>
+                <li class="nav-item <?= isActive('chatbot.php') ?>">
+                    <a class="nav-link" href="chatbot.php">
+                        <i class="fas fa-robot"></i> 
+                    </a>
+                    <span>FinBot Chat</span>
+                </li>
+
                         <?php 
                         // Afficher un badge si l'utilisateur a des messages non lus
                         if (function_exists('countUnreadMessages') && $unreadMessages = countUnreadMessages($user['id'])): 

@@ -4,6 +4,9 @@
 /**
  * Configuration générale de l'application
  */
+// Chargement des variables d'environnement
+ define('GEMINI_API_KEY', $_ENV['GEMINI_API_KEY'] ?? '');
+ define('GEMINI_MODEL', $_ENV['GEMINI_MODEL'] ?? 'gemini-pro');
 
 // Informations de base de l'application
 define('APP_NAME', 'FinBot');
@@ -76,6 +79,7 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', 'finbot');  // Assurez-vous que cette base de données existe
 define('DB_USER', 'root');    // Utilisateur MySQL/MariaDB (généralement 'root' pour WAMP)
 define('DB_PASS', '');        // Mot de passe (généralement vide pour WAMP)
+
 
 // Taux d'intérêt et frais
 define('TAUX_LIVRET_A', 0.03); // 3%
