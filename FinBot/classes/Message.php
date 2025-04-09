@@ -2,6 +2,28 @@
 // filepath: c:\wamp\www\projetBUT\SAE.04\SAE-Banque\FinBot\classes\Message.php
 
 require_once __DIR__ . '/Database.php';
+// Dans send_message.php
+require_once __DIR__ . '/../../classes/Chatbot.php';
+$chatbot = new Chatbot();
+// Dans send_message.php
+try {
+    $response = $chatbot->sendMessagePython($message, $context);
+    // Journaliser pour débogage
+    error_log("Commande exécutée : " . $command);
+    error_log("Réponse brute : " . print_r($output, true));
+    
+    // Vérifier la réponse
+    if (isset($response['error'])) {
+        throw new Exception($response['error']);
+    }
+    
+    echo json_encode(['response' => $response['response']]);
+} catch (Exception $e) {
+    error_log("Erreur FinBot: " . $e->getMessage());
+    echo json_encode(['error' => $e->getMessage()]);
+}
+
+
 
 /**
  * Classe pour gérer les messages entre utilisateurs

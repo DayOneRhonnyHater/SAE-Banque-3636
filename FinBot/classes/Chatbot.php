@@ -1,42 +1,37 @@
 <?php
 class Chatbot {
-    /**
-     * Envoie un message au script Python du chatbot et retourne la réponse
-     * 
-     * @param string $message Message de l'utilisateur
-     * @param array $context Contexte utilisateur (optionnel)
-     * @return array Réponse décodée du chatbot
-     */
-    public function sendMessagePython($message, $context = []) {
-        // Préparation des données au format JSON
-        $data = json_encode([
-            'message' => $message,
-            'context' => $context
-        ]);
-        
-        // Chemin absolu vers le script Python (adapté à votre structure)
+    const MAX_RETRIES = 2;
+    const TIMEOUT = 30; // secondes
+
+    public function sendMessage($message, $context = []) {
+        $apiKey = getenv('GEMINI_API_KEY');
         $scriptPath = realpath(__DIR__ . '/../../python/chatbot.py');
         
-        // Construction de la commande shell sécurisée
-        $command = escapeshellcmd("python3 $scriptPath " . escapeshellarg($data));
-        
-        // Exécution et récupération de la sortie
+        $data = [
+            'message' => $message,
+            'context' => array_merge($context, [
+                'user_ip' => $_SERVER['REMOTE_ADDR'],
+                'timestamp' => time()
+            ])
+        ];
+
+        $command = sprintf(
+            'export GEMINI_API_KEY=%s && python %s %s 2>&1',
+            escapeshellarg($apiKey),
+            escapeshellarg($scriptPath),
+            escapeshellarg(json_encode($data))
+        );
+
         $output = shell_exec($command);
-        
-        // Décodage de la réponse JSON
         $response = json_decode($output, true);
-        
-        // Gestion des erreurs de décodage
+
         if (json_last_error() !== JSON_ERROR_NONE) {
-            return ['error' => 'Erreur de format de réponse du chatbot'];
+            error_log("Erreur JSON: $output");
+            return ['error' => 'Réponse invalide du serveur'];
         }
-        
-        
-        // Gestion des erreurs d'exécution du script Python
-        if ($output === null) {
-            return ['error' => 'Erreur d\'exécution du script Python'];
-}
+
         return $response;
     }
 }
-C:/Users/Moi wsh/Documents/SAE-Banque-3636/FinBot
+?>
+ 

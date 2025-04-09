@@ -1,38 +1,51 @@
-# FinBot/python/chatbot.py
+from google import genai
 import sys
 import json
-# Configurer l'API avec la clé
 import os
-from dotenv import load_dotenv
-import google.generativeai as genai
 
-# Charger le .env depuis le dossier racine
-env_path = os.path.join(os.path.dirname(__file__), '../../.env')
-load_dotenv(env_path)  # Correction cruciale du chemin
+# Configuration
+GEMINI_MODEL = "gemini-2.0-flash"
+MAX_RETRIES = 3
 
-# Configuration explicite
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
-# Fonction principale pour générer une réponse
-def generate_response(message, context=None):
-    model = genai.GenerativeModel('gemini-pro')
-    
-    # Préparer le message avec contexte si disponible
-    prompt = message
-    if context:
-        prompt = f"Contexte: {json.dumps(context)}\n\nQuestion: {message}"
-    
-    # Générer la réponse
-    response = model.generate_content(prompt)
-    
-    return response.text
+def initialize_client():
+    """Initialise le client Gemini avec la clé API"""
+    api_key = "AIzaSyCJlDl3FQJKgqql8rK29tAwsU08xxtqcUA"
+    if not api_key:
+        raise ValueError("Clé API Gemini manquante dans les variables d'environnement")
+    return genai.Client(api_key=api_key)
 
-# Point d'entrée pour l'appel depuis PHP
+def generate_response(client, message, context=None):
+    """Génère une réponse avec contexte et gestion d'erreurs"""
+    try:
+        system_prompt = """Vous êtes FinBot, assistant bancaire expert. Règles :
+        - Réponses concises (<100 mots)
+        - Exclusivement en français
+        - Donnez des informations exactes
+        - Orientez vers un conseiller si nécessaire"""
+        
+        full_prompt = f"{system_prompt}\n\nContexte: {json.dumps(context)}\nQuestion: {message}"
+        
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=full_prompt,
+            generation_config={
+                "temperature": 0.3,
+                "max_output_tokens": 512
+            }
+        )
+        return response.text.strip()
+    except Exception as e:
+        return f"Erreur Gemini : {str(e)}"
+
 if __name__ == "__main__":
-    # Récupérer les arguments
-    input_data = json.loads(sys.argv[1])
-    message = input_data.get('message', '')
-    context = input_data.get('context', {})
-    
-    # Générer et retourner la réponse
-    response = generate_response(message, context)
-    print(json.dumps({"response": response}))
+    try:
+        client = initialize_client()
+        input_data = json.loads(sys.argv[1])
+        message = input_data.get('message', '')
+        context = input_data.get('context', {})
+        
+        response = generate_response(client, message, context)
+        print(json.dumps({"response": response}))
+        
+    except Exception as e:
+        print(json.dumps({"error": str(e)}))

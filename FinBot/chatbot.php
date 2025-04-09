@@ -100,6 +100,20 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
         });
     }
+
+    public function sendMessagePython($message, $context = []) {
+    $data = json_encode([
+        'message' => $message,
+        'context' => $context
+    ]);
+    
+    $scriptPath = realpath(__DIR__ . '/../python/chatbot.py');
+    $command = escapeshellcmd("python $scriptPath " . escapeshellarg($data));
+    
+    $output = shell_exec($command);
+    return json_decode($output, true);
+}
+
     
     sendBtn.addEventListener('click', sendMessage);
     userInput.addEventListener('keypress', function(e) {

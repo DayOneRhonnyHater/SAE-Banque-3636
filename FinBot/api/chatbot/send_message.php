@@ -1,85 +1,40 @@
 <?php
-// FinBot/api/chatbot/send_message.php
 require_once __DIR__ . '/../../includes/init.php';
 require_once __DIR__ . '/../../classes/Chatbot.php';
-require_once __DIR__ . '/../../includes/init.php';
 
-// Vérifiez si l'utilisateur est connecté
-session_start();
-if (!isset($_SESSION['user'])) {
-    echo json_encode(['error' => 'Utilisateur non authentifié']);
-    exit;
-}
-
-// Récupérez les données envoyées par le frontend
-$data = json_decode(file_get_contents('php://input'), true);
-$message = $data['message'] ?? '';
-
-if (empty($message)) {
-    echo json_encode(['error' => 'Message requis']);
-    exit;
-}
-
-// Contexte utilisateur
-$userContext = [
-    'user_id' => $_SESSION['user']['id'] ?? null,
-    'user_name' => $_SESSION['user']['name'] ?? null,
-];
-
-// Appelez le chatbot via le script Python
-$response = callPythonChatbot($message, $userContext);
-
-// Retournez la réponse au frontend
 header('Content-Type: application/json');
-echo json_encode(['response' => $response]);
 
-
-// Vérifier si l'utilisateur est authentifié
-require_once __DIR__ . '/../../includes/auth_functions.php';
 try {
-    checkAuth();
-} catch (Exception $e) {
-    header('Content-Type: application/json');
-    echo json_encode(['error' => 'Authentification requise']);
-    exit;
-}
+    // Authentification
+    if (!isset($_SESSION['user_id'])) {
+        throw new Exception('Authentification requise', 401);
+    }
 
-// Récupérer les données JSON du corps de la requête
-$data = json_decode(file_get_contents('php://input'), true);
-$message = $data['message'] ?? '';
-
-if (empty($message)) {
-    header('Content-Type: application/json');
-    echo json_encode(['error' => 'Message requis']);
-    exit;
-}
-
-// Contexte utilisateur pour personnaliser les réponses
-$userContext = [];
-
-// Si l'utilisateur est connecté, ajouter des informations contextuelles
-if (isset($_SESSION['user_id'])) {
-    require_once __DIR__ . '/../../classes/User.php';
-    require_once __DIR__ . '/../../classes/Compte.php';
+    // Validation des entrées
+    $input = json_decode(file_get_contents('php://input'), true);
+    $message = filter_var($input['message'] ?? '', FILTER_SANITIZE_STRING);
     
-    $user = new User();
-    $userInfo = $user->getUserById($_SESSION['user_id']);
-    
-    $compte = new Compte();
-    $accounts = $compte->getAccountsByUserId($_SESSION['user_id']);
-    
-    $userContext = [
-        'nom' => $userInfo['nom'] ?? '',
-        'prenom' => $userInfo['prenom'] ?? '',
-        'nombre_comptes' => count($accounts),
-        'types_comptes' => array_column($accounts, 'type')
+    if (empty($message) || strlen($message) > 500) {
+        throw new Exception('Message invalide', 400);
+    }
+
+    // Contexte utilisateur
+    $context = [
+        'user_id' => $_SESSION['user_id'],
+        'user_role' => $_SESSION['user']['role'] ?? 'client'
     ];
+
+    // Appel au chatbot
+    $chatbot = new Chatbot();
+    $response = $chatbot->sendMessage($message, $context);
+
+    echo json_encode($response);
+
+} catch (Exception $e) {
+    http_response_code($e->getCode() ?: 500);
+    echo json_encode([
+        'error' => $e->getMessage(),
+        'code' => $e->getCode()
+    ]);
 }
-
-// Initialiser le chatbot et envoyer le message
-$chatbot = new Chatbot();
-$response = $chatbot->sendMessage($message, $userContext);
-
-// Renvoyer la réponse au format JSON
-header('Content-Type: application/json');
-echo json_encode(['response' => $response]);
+?>
