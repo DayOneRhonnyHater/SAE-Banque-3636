@@ -2,6 +2,12 @@ const port = process.env.BOTPRESS_PORT || process.env.PORT || 3000
 const botUrl = process.env.BOTPRESS_URL || `http://localhost:${port}`
 
 module.exports = {
+  
+
+  botId: 'banking-chatbot',
+  modules: ['nlu', 'qna'],
+  defaultLanguage: 'fr',
+
   /*
     Botpress minimal supported version.
     Don't forget to change it when updating to the next major version.

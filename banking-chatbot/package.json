@@ -1,4 +1,5 @@
 {
+  
   "name": "finbot",
   "version": "1.0.0",
   "description": "chat bot pour l'appli finbot",
@@ -19,7 +20,7 @@
     "yn": "^2.0.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "botpress start",
     "ghost-sync": "botpress ghost-sync",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

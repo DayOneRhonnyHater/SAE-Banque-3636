@@ -1,18 +1,15 @@
 {
+    "name": "finbot",
+    "version": "1.0.0",
+    "description": "Chatbot bancaire basé sur Botpress",
+    "main": "index.js",
+    "scripts": {
+      "start": "botpress start"
+    },
+    "dependencies": {
+      "botpress": "^12.27.4"
+},
   
-   "name": "finbot",
-  "version": "1.0.0",
-  "description": "Chatbot bancaire basé sur Botpress",
-  "main": "index.js",
-  "scripts": {
-    "start": "botpress start"
-  },
-  "dependencies": {
-    "botpress": "^12.27.4"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DayOneRhonnyHater/SAE-Banque-3636.git"
@@ -23,9 +20,7 @@
   "bugs": {
     "url": "https://github.com/DayOneRhonnyHater/SAE-Banque-3636/issues"
   },
-  "homepage": "https://github.com/DayOneRhonnyHater/SAE-Banque-3636#readme",
-  "description": "",
-  "dependencies": {
-    "botpress": "^10.51.10"
-  }
+  "homepage": "https://github.com/DayOneRhonnyHater/SAE-Banque-3636#readme"
+ 
+  
 }
