@@ -1,0 +1,11 @@
+version: '3'
+services:
+  botpress:
+    image: botpress/server:latest
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - ./FinBot/botpress:/botpress/data
+    environment:
+      - BP_ENCRYPTION_KEY=${BP_ENCRYPTION_KEY}

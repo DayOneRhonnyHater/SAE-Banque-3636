@@ -282,6 +282,18 @@ function rateLimiter($action, $identifier, $maxAttempts = 5, $timeout = 300) {
         $waitTime = $timeout - ($now - $data['last_attempt']);
         throw new Exception("Trop de tentatives. Veuillez réessayer dans {$waitTime} secondes.");
     }
+    // Validation des requêtes Botpress
+    if (!verify_request_signature($_SERVER['HTTP_X_BOTPRESS_SIGNATURE'])) {
+        http_response_code(403);
+        die(json_encode(['error' => 'Signature invalide']));
+    }
+
+    function verify_request_signature($signature) {
+        $secret = getenv('BOTPRESS_SECRET');
+        $payload = file_get_contents('php://input');
+        return hash_equals(hash_hmac('sha256', $payload, $secret), $signature);
+}
+
     
     // Incrémenter le compteur
     $data['attempts']++;
